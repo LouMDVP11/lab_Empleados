@@ -60,6 +60,7 @@ namespace lab_Empleados
 
         private void cmbNumero_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(cmbNumero.SelectedIndex>-1)
             txtNombre.Text = lstEmpleados[cmbNumero.SelectedIndex].Nombre;
         }
     }
