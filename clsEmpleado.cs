@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lab_Empleados
 {
-    class clsEmpleado
+    public class clsEmpleado
     {
         int codigo;
         string nombre;

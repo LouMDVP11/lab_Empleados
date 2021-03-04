@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lab_Empleados
 {
-    class clsIntermedia
+    public class clsIntermedia
     {
         int codigo;
         double totalPagado;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lab_Empleados
 {
-    class clsAsistencia
+    public class clsAsistencia
     {
         int codigo;
         int horasMes;

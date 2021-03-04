@@ -12,12 +12,12 @@ namespace lab_Empleados
 {
     public partial class frmEmpleado : Form
     {
-        int contPuntos = 0;
+        int contPuntos = 0; 
+        public List<clsEmpleado> lstEmpleados;
         public frmEmpleado()
         {
             InitializeComponent();
         }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -54,6 +54,15 @@ namespace lab_Empleados
                 //el resto de teclas pulsadas se desactivan
                 e.Handled = true;
             }
+        }
+
+        private void frmEmpleado_FormClosing(object sender, FormClosingEventArgs e)
+        {
+        }
+
+        private void frmEmpleado_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

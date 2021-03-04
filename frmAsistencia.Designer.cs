@@ -189,6 +189,7 @@
             this.Controls.Add(this.label5);
             this.Name = "frmAsistencia";
             this.Text = "Asistencia";
+            this.Load += new System.EventHandler(this.frmAsistencia_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgEmisiondeSalarios)).EndInit();
             this.ResumeLayout(false);

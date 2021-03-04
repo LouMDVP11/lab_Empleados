@@ -12,9 +12,17 @@ namespace lab_Empleados
 {
     public partial class frmAsistencia : Form
     {
+        public List<clsEmpleado> lstEmpleados;
+        public List<clsAsistencia> lstAsistencias;
+        public List<clsIntermedia> lstIntermedias;
         public frmAsistencia()
         {
             InitializeComponent();
+        }
+
+        private void frmAsistencia_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

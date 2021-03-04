@@ -104,7 +104,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(31, 154);
+            this.label4.Location = new System.Drawing.Point(31, 155);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(221, 17);
             this.label4.TabIndex = 8;
@@ -147,6 +147,8 @@
             this.Controls.Add(this.label1);
             this.Name = "frmEmpleado";
             this.Text = "Empleado";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEmpleado_FormClosing);
+            this.Load += new System.EventHandler(this.frmEmpleado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgListado)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

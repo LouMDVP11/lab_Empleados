@@ -38,7 +38,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.añadirEmpleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.rbNum = new System.Windows.Forms.RadioButton();
             this.rbNombre = new System.Windows.Forms.RadioButton();
             this.rbSalario = new System.Windows.Forms.RadioButton();
@@ -47,6 +46,7 @@
             this.rbNum2 = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgEmpleados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgAsistencia)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -143,13 +143,7 @@
             this.pagosToolStripMenuItem.Name = "pagosToolStripMenuItem";
             this.pagosToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.pagosToolStripMenuItem.Text = "Emisión de Salarios";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(270, 221);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(291, 22);
-            this.textBox1.TabIndex = 16;
+            this.pagosToolStripMenuItem.Click += new System.EventHandler(this.pagosToolStripMenuItem_Click);
             // 
             // rbNum
             // 
@@ -241,14 +235,22 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Orden";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(267, 221);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(291, 24);
+            this.comboBox1.TabIndex = 26;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(749, 511);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label5);
@@ -257,9 +259,12 @@
             this.Controls.Add(this.dtgEmpleados);
             this.Controls.Add(this.btnCargarDatos);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Información general";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgEmpleados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgAsistencia)).EndInit();
             this.menuStrip1.ResumeLayout(false);
@@ -285,7 +290,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem añadirEmpleadoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pagosToolStripMenuItem;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.RadioButton rbNum;
         private System.Windows.Forms.RadioButton rbNombre;
         private System.Windows.Forms.RadioButton rbSalario;
@@ -294,6 +298,7 @@
         private System.Windows.Forms.RadioButton rbNum2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 
