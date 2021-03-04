@@ -49,6 +49,10 @@ namespace lab_Empleados
                 writer.Close();
                 this.lstAsistencias.Add(nuevaAsistencia);
                 MessageBox.Show("Salario emitido agregado exitosamente.");
+                cmbMes.SelectedIndex = -1;
+                cmbNumero.SelectedIndex = -1;
+                nudHoras.Value = 1;
+                txtNombre.Clear();
                 Actualizar();
             }
             else MessageBox.Show("Debe seleccionar información para todos los datos.");

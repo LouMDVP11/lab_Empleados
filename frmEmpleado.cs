@@ -103,6 +103,9 @@ namespace lab_Empleados
                     writer.Close();
                     this.lstEmpleados.Add(nuevoEmpleado);
                     MessageBox.Show("Empleado agregado exitosamente.");
+                    txtNombre.Clear();
+                    txtNumero.Clear();
+                    txtSalario.Clear();
                     Actualizar();
                 }
                 else
