@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnCargarDatos = new System.Windows.Forms.Button();
             this.dtgEmpleados = new System.Windows.Forms.DataGridView();
             this.dtgAsistencia = new System.Windows.Forms.DataGridView();
             this.cmbNumero = new System.Windows.Forms.ComboBox();
@@ -38,31 +37,23 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.añadirEmpleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.actualizarDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rbNum = new System.Windows.Forms.RadioButton();
             this.rbNombre = new System.Windows.Forms.RadioButton();
             this.rbSalario = new System.Windows.Forms.RadioButton();
-            this.rbSalario2 = new System.Windows.Forms.RadioButton();
-            this.rbNombre2 = new System.Windows.Forms.RadioButton();
+            this.rbTotalPagado = new System.Windows.Forms.RadioButton();
             this.rbNum2 = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cmbNombre = new System.Windows.Forms.ComboBox();
-            this.actualizarDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnReestablecer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgEmpleados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgAsistencia)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnCargarDatos
-            // 
-            this.btnCargarDatos.Location = new System.Drawing.Point(447, 458);
-            this.btnCargarDatos.Name = "btnCargarDatos";
-            this.btnCargarDatos.Size = new System.Drawing.Size(111, 34);
-            this.btnCargarDatos.TabIndex = 0;
-            this.btnCargarDatos.Text = "Cargar Datos";
-            this.btnCargarDatos.UseVisualStyleBackColor = true;
             // 
             // dtgEmpleados
             // 
@@ -77,17 +68,19 @@
             // dtgAsistencia
             // 
             this.dtgAsistencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgAsistencia.Location = new System.Drawing.Point(34, 262);
+            this.dtgAsistencia.Location = new System.Drawing.Point(34, 290);
             this.dtgAsistencia.Name = "dtgAsistencia";
             this.dtgAsistencia.RowHeadersWidth = 51;
             this.dtgAsistencia.RowTemplate.Height = 24;
-            this.dtgAsistencia.Size = new System.Drawing.Size(524, 177);
+            this.dtgAsistencia.Size = new System.Drawing.Size(524, 193);
             this.dtgAsistencia.TabIndex = 2;
             // 
             // cmbNumero
             // 
+            this.cmbNumero.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbNumero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbNumero.FormattingEnabled = true;
-            this.cmbNumero.Location = new System.Drawing.Point(70, 221);
+            this.cmbNumero.Location = new System.Drawing.Point(74, 231);
             this.cmbNumero.Name = "cmbNumero";
             this.cmbNumero.Size = new System.Drawing.Size(98, 24);
             this.cmbNumero.TabIndex = 3;
@@ -106,7 +99,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 224);
+            this.label2.Location = new System.Drawing.Point(38, 234);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(30, 17);
             this.label2.TabIndex = 13;
@@ -115,7 +108,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(194, 224);
+            this.label3.Location = new System.Drawing.Point(198, 234);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 17);
             this.label3.TabIndex = 14;
@@ -130,7 +123,7 @@
             this.actualizarDatosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(749, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(749, 30);
             this.menuStrip1.TabIndex = 15;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -148,6 +141,13 @@
             this.pagosToolStripMenuItem.Text = "Emisión de Salarios";
             this.pagosToolStripMenuItem.Click += new System.EventHandler(this.pagosToolStripMenuItem_Click);
             // 
+            // actualizarDatosToolStripMenuItem
+            // 
+            this.actualizarDatosToolStripMenuItem.Name = "actualizarDatosToolStripMenuItem";
+            this.actualizarDatosToolStripMenuItem.Size = new System.Drawing.Size(149, 24);
+            this.actualizarDatosToolStripMenuItem.Text = "↻ Actualizar Datos";
+            this.actualizarDatosToolStripMenuItem.Click += new System.EventHandler(this.actualizarDatosToolStripMenuItem_Click);
+            // 
             // rbNum
             // 
             this.rbNum.AutoSize = true;
@@ -158,6 +158,7 @@
             this.rbNum.TabStop = true;
             this.rbNum.Text = "Por número";
             this.rbNum.UseVisualStyleBackColor = true;
+            this.rbNum.CheckedChanged += new System.EventHandler(this.rbNum_CheckedChanged);
             // 
             // rbNombre
             // 
@@ -169,6 +170,7 @@
             this.rbNombre.TabStop = true;
             this.rbNombre.Text = "Nombre";
             this.rbNombre.UseVisualStyleBackColor = true;
+            this.rbNombre.CheckedChanged += new System.EventHandler(this.rbNombre_CheckedChanged);
             // 
             // rbSalario
             // 
@@ -178,30 +180,21 @@
             this.rbSalario.Size = new System.Drawing.Size(73, 21);
             this.rbSalario.TabIndex = 20;
             this.rbSalario.TabStop = true;
-            this.rbSalario.Text = "Salario";
+            this.rbSalario.Text = "Sueldo";
             this.rbSalario.UseVisualStyleBackColor = true;
+            this.rbSalario.CheckedChanged += new System.EventHandler(this.rbSalario_CheckedChanged);
             // 
-            // rbSalario2
+            // rbTotalPagado
             // 
-            this.rbSalario2.AutoSize = true;
-            this.rbSalario2.Location = new System.Drawing.Point(16, 75);
-            this.rbSalario2.Name = "rbSalario2";
-            this.rbSalario2.Size = new System.Drawing.Size(73, 21);
-            this.rbSalario2.TabIndex = 23;
-            this.rbSalario2.TabStop = true;
-            this.rbSalario2.Text = "Salario";
-            this.rbSalario2.UseVisualStyleBackColor = true;
-            // 
-            // rbNombre2
-            // 
-            this.rbNombre2.AutoSize = true;
-            this.rbNombre2.Location = new System.Drawing.Point(16, 48);
-            this.rbNombre2.Name = "rbNombre2";
-            this.rbNombre2.Size = new System.Drawing.Size(79, 21);
-            this.rbNombre2.TabIndex = 22;
-            this.rbNombre2.TabStop = true;
-            this.rbNombre2.Text = "Nombre";
-            this.rbNombre2.UseVisualStyleBackColor = true;
+            this.rbTotalPagado.AutoSize = true;
+            this.rbTotalPagado.Location = new System.Drawing.Point(16, 48);
+            this.rbTotalPagado.Name = "rbTotalPagado";
+            this.rbTotalPagado.Size = new System.Drawing.Size(114, 21);
+            this.rbTotalPagado.TabIndex = 22;
+            this.rbTotalPagado.TabStop = true;
+            this.rbTotalPagado.Text = "Total Pagado";
+            this.rbTotalPagado.UseVisualStyleBackColor = true;
+            this.rbTotalPagado.CheckedChanged += new System.EventHandler(this.rbNombre2_CheckedChanged);
             // 
             // rbNum2
             // 
@@ -213,6 +206,7 @@
             this.rbNum2.TabStop = true;
             this.rbNum2.Text = "Por número";
             this.rbNum2.UseVisualStyleBackColor = true;
+            this.rbNum2.CheckedChanged += new System.EventHandler(this.rbNum2_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -229,36 +223,54 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.rbNum2);
-            this.groupBox2.Controls.Add(this.rbNombre2);
-            this.groupBox2.Controls.Add(this.rbSalario2);
-            this.groupBox2.Location = new System.Drawing.Point(582, 262);
+            this.groupBox2.Controls.Add(this.rbTotalPagado);
+            this.groupBox2.Location = new System.Drawing.Point(582, 306);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(141, 105);
+            this.groupBox2.Size = new System.Drawing.Size(141, 87);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Orden";
             // 
             // cmbNombre
             // 
+            this.cmbNombre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbNombre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbNombre.FormattingEnabled = true;
-            this.cmbNombre.Location = new System.Drawing.Point(267, 221);
+            this.cmbNombre.Location = new System.Drawing.Point(271, 231);
             this.cmbNombre.Name = "cmbNombre";
             this.cmbNombre.Size = new System.Drawing.Size(291, 24);
             this.cmbNombre.TabIndex = 26;
             this.cmbNombre.SelectedIndexChanged += new System.EventHandler(this.cmbNombre_SelectedIndexChanged);
             // 
-            // actualizarDatosToolStripMenuItem
+            // btnBuscar
             // 
-            this.actualizarDatosToolStripMenuItem.Name = "actualizarDatosToolStripMenuItem";
-            this.actualizarDatosToolStripMenuItem.Size = new System.Drawing.Size(149, 26);
-            this.actualizarDatosToolStripMenuItem.Text = "↻ Actualizar Datos";
-            this.actualizarDatosToolStripMenuItem.Click += new System.EventHandler(this.actualizarDatosToolStripMenuItem_Click);
+            this.btnBuscar.Enabled = false;
+            this.btnBuscar.Location = new System.Drawing.Point(584, 227);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(117, 29);
+            this.btnBuscar.TabIndex = 27;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // btnReestablecer
+            // 
+            this.btnReestablecer.Enabled = false;
+            this.btnReestablecer.Location = new System.Drawing.Point(584, 262);
+            this.btnReestablecer.Name = "btnReestablecer";
+            this.btnReestablecer.Size = new System.Drawing.Size(117, 29);
+            this.btnReestablecer.TabIndex = 28;
+            this.btnReestablecer.Text = "Reestablecer";
+            this.btnReestablecer.UseVisualStyleBackColor = true;
+            this.btnReestablecer.Click += new System.EventHandler(this.btnReestablecer_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(749, 511);
+            this.Controls.Add(this.btnReestablecer);
+            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.cmbNombre);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -268,7 +280,6 @@
             this.Controls.Add(this.cmbNumero);
             this.Controls.Add(this.dtgAsistencia);
             this.Controls.Add(this.dtgEmpleados);
-            this.Controls.Add(this.btnCargarDatos);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
@@ -290,8 +301,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnCargarDatos;
         private System.Windows.Forms.DataGridView dtgEmpleados;
         private System.Windows.Forms.DataGridView dtgAsistencia;
         private System.Windows.Forms.ComboBox cmbNumero;
@@ -304,13 +313,14 @@
         private System.Windows.Forms.RadioButton rbNum;
         private System.Windows.Forms.RadioButton rbNombre;
         private System.Windows.Forms.RadioButton rbSalario;
-        private System.Windows.Forms.RadioButton rbSalario2;
-        private System.Windows.Forms.RadioButton rbNombre2;
+        private System.Windows.Forms.RadioButton rbTotalPagado;
         private System.Windows.Forms.RadioButton rbNum2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox cmbNombre;
         private System.Windows.Forms.ToolStripMenuItem actualizarDatosToolStripMenuItem;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnReestablecer;
     }
 }
 

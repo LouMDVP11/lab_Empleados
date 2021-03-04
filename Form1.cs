@@ -45,7 +45,12 @@ namespace lab_Empleados
             this.dtgAsistencia.DataSource = null;
             this.dtgAsistencia.DataSource = this.lstAsistencias;
             this.dtgAsistencia.Refresh();
-            if(lstEmpleados.Count>0)
+            rbNombre.Checked = false;
+            rbNum.Checked = false;
+            rbSalario.Checked = false;
+            rbTotalPagado.Checked = false;
+            rbNum2.Checked = false;
+            if (lstEmpleados.Count>0)
             foreach (var em in lstEmpleados) {
                 cmbNumero.Items.Add(em.Codigo);
                 cmbNombre.Items.Add(em.Nombre);
@@ -93,11 +98,111 @@ namespace lab_Empleados
         private void cmbNumero_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmbNombre.SelectedIndex = cmbNumero.SelectedIndex;
+            btnBuscar.Enabled = true;
+            btnReestablecer.Enabled = true;
+            rbNum2.Enabled = false;
+            rbNum2.Checked = false;
+            rbTotalPagado.Checked = false;
         }
 
         private void cmbNombre_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmbNumero.SelectedIndex = cmbNombre.SelectedIndex;
+        }
+
+        private void rbNum_CheckedChanged(object sender, EventArgs e)
+        {
+            List<clsEmpleado> lstEmpleadosTemp = lstEmpleados;
+            lstEmpleadosTemp = lstEmpleadosTemp.OrderBy(n => n.Codigo).ToList();
+            this.dtgEmpleados.DataSource = null;
+            this.dtgEmpleados.DataSource = lstEmpleadosTemp;
+            this.dtgEmpleados.Refresh();
+        }
+
+        private void rbNombre_CheckedChanged(object sender, EventArgs e)
+        {
+            List<clsEmpleado> lstEmpleadosTemp = lstEmpleados;
+            lstEmpleadosTemp = lstEmpleadosTemp.OrderBy(n => n.Nombre).ToList();
+            this.dtgEmpleados.DataSource = null;
+            this.dtgEmpleados.DataSource = lstEmpleadosTemp;
+            this.dtgEmpleados.Refresh();
+        }
+
+        private void rbSalario_CheckedChanged(object sender, EventArgs e)
+        {
+            List<clsEmpleado> lstEmpleadosTemp = lstEmpleados;
+            lstEmpleadosTemp = lstEmpleadosTemp.OrderBy(n => n.Sueldo).ToList();
+            this.dtgEmpleados.DataSource = null;
+            this.dtgEmpleados.DataSource = lstEmpleadosTemp;
+            this.dtgEmpleados.Refresh();
+        }
+
+        private void rbNum2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (lstAsistenciaFiltrada == false)
+            {
+                List<clsAsistencia> lstAsistenciasTemp = lstAsistencias;
+                lstAsistenciasTemp = lstAsistenciasTemp.OrderBy(n => n.Codigo).ToList();
+                this.dtgAsistencia.DataSource = null;
+                this.dtgAsistencia.DataSource = lstAsistenciasTemp;
+                this.dtgEmpleados.Refresh();
+            }
+            else
+            {
+                List<clsAsistencia> lstAsistenciasTemp = new List<clsAsistencia>();
+                AsistenciaFiltrada(lstAsistenciasTemp);
+                lstAsistenciasTemp = lstAsistenciasTemp.OrderBy(at => at.Codigo).ToList();
+                this.dtgAsistencia.DataSource = null;
+                this.dtgAsistencia.DataSource = lstAsistenciasTemp;
+                this.dtgEmpleados.Refresh();
+            }
+        }
+
+        private void rbNombre2_CheckedChanged(object sender, EventArgs e)//rbTotalPagado
+        {
+            if (lstAsistenciaFiltrada == false)
+            {
+                List<clsAsistencia> lstAsistenciasTemp = lstAsistencias;
+                lstAsistenciasTemp = lstAsistenciasTemp.OrderBy(n => n.TotalPagado).ToList();
+                this.dtgAsistencia.DataSource = null;
+                this.dtgAsistencia.DataSource = lstAsistenciasTemp;
+                this.dtgEmpleados.Refresh();
+            }
+            else
+            {
+                List<clsAsistencia> lstAsistenciasTemp = new List<clsAsistencia>();
+                AsistenciaFiltrada(lstAsistenciasTemp);
+                lstAsistenciasTemp = lstAsistenciasTemp.OrderBy(at => at.TotalPagado).ToList();
+                this.dtgAsistencia.DataSource = null;
+                this.dtgAsistencia.DataSource = lstAsistenciasTemp;
+                this.dtgEmpleados.Refresh();
+            }
+        }
+        Boolean lstAsistenciaFiltrada = false;
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            List<clsAsistencia> lstAsistenciasTemp = new List<clsAsistencia>();
+            AsistenciaFiltrada(lstAsistenciasTemp);
+        }
+        private void AsistenciaFiltrada(List<clsAsistencia> lstAsistenciasTemp) {
+            foreach (var a in lstAsistencias)
+                if (a.Codigo.Equals(Convert.ToInt32(cmbNumero.SelectedItem)))
+                    lstAsistenciasTemp.Add(a);
+            dtgAsistencia.DataSource = null;
+            dtgAsistencia.DataSource = lstAsistenciasTemp;
+            dtgAsistencia.Refresh();
+            lstAsistenciaFiltrada = true;
+        }
+
+        private void btnReestablecer_Click(object sender, EventArgs e)
+        {
+            lstAsistenciaFiltrada = false;
+            btnBuscar.Enabled = false;
+            btnReestablecer.Enabled = false;
+            cmbNumero.SelectedIndex = -1;
+            cmbNombre.SelectedIndex = -1;
+            rbTotalPagado.Checked = false;
+            rbNum2.Enabled = true;
         }
     }
 }
