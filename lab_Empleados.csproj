@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="clsAsistencia.cs" />
     <Compile Include="clsEmpleado.cs" />
-    <Compile Include="clsIntermedia.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

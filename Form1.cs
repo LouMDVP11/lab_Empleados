@@ -15,7 +15,6 @@ namespace lab_Empleados
     {
         List<clsEmpleado> lstEmpleados = new List<clsEmpleado>();
         List<clsAsistencia> lstAsistencias = new List<clsAsistencia>();
-        List<clsIntermedia> lstIntermedias = new List<clsIntermedia>();
 
         public Form1()
         {
@@ -35,18 +34,15 @@ namespace lab_Empleados
             frmAsistencia asistencia = new frmAsistencia();
             asistencia.lstEmpleados = this.lstEmpleados;
             asistencia.lstAsistencias = this.lstAsistencias;
-            asistencia.lstIntermedias = this.lstIntermedias;
             asistencia.ShowDialog();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             FileStream stream = new FileStream("Empleados.txt", FileMode.Open, FileAccess.Read);
-            FileStream stream2 = new FileStream("Intermedias.txt", FileMode.Open, FileAccess.Read);
-            FileStream stream3 = new FileStream("Asistencias.txt", FileMode.Open, FileAccess.Read);
+            FileStream stream2 = new FileStream("Asistencias.txt", FileMode.Open, FileAccess.Read);
             StreamReader reader = new StreamReader(stream);
             StreamReader reader2 = new StreamReader(stream2);
-            StreamReader reader3 = new StreamReader(stream3);
             while (reader.Peek() > -1)
             {
                 clsEmpleado empleadoTemp = new clsEmpleado();
@@ -58,21 +54,13 @@ namespace lab_Empleados
             reader.Close();
             while (reader2.Peek() > -1)
             {
-                clsIntermedia interTemp = new clsIntermedia();
-                interTemp.Codigo = Convert.ToInt32(reader2.ReadLine());
-                interTemp.TotalPagado = Convert.ToDouble(reader2.ReadLine());
-                lstIntermedias.Add(interTemp);
-            }
-            reader2.Close();
-            while (reader3.Peek() > -1)
-            {
                 clsAsistencia asistenciaTemp = new clsAsistencia();
-                asistenciaTemp.Codigo = Convert.ToInt32(reader3.ReadLine());
-                asistenciaTemp.HorasMes = Convert.ToInt32(reader3.ReadLine());
-                asistenciaTemp.Mes = reader3.ReadLine();
+                asistenciaTemp.Codigo = Convert.ToInt32(reader2.ReadLine());
+                asistenciaTemp.HorasMes = Convert.ToInt32(reader2.ReadLine());
+                asistenciaTemp.Mes = reader2.ReadLine();
                 lstAsistencias.Add(asistenciaTemp);
             }
-            reader3.Close();
+            reader2.Close();
         }
     }
 }

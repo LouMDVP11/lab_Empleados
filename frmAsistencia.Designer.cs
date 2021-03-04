@@ -187,7 +187,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmAsistencia";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Asistencia";
             this.Load += new System.EventHandler(this.frmAsistencia_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();

@@ -14,7 +14,6 @@ namespace lab_Empleados
     {
         public List<clsEmpleado> lstEmpleados;
         public List<clsAsistencia> lstAsistencias;
-        public List<clsIntermedia> lstIntermedias;
         public frmAsistencia()
         {
             InitializeComponent();

@@ -12,7 +12,6 @@ namespace lab_Empleados
 {
     public partial class frmEmpleado : Form
     {
-        int contPuntos = 0; 
         public List<clsEmpleado> lstEmpleados;
         public frmEmpleado()
         {
@@ -40,20 +39,26 @@ namespace lab_Empleados
 
         private void txtSalario_KeyPress(object sender, KeyPressEventArgs e)
         {
+            int contPuntos = 0;
+            string cadena = txtSalario.Text;
+            char letra;
+            for (int x = 0; x < cadena.Length; x++) {
+                letra = cadena[x];
+                if (letra.Equals('.')) contPuntos++;
+            }
+
             //Para obligar a que sólo se introduzcan números
             if (Char.IsDigit(e.KeyChar))
-            {
                 e.Handled = false;
-            }
             else if (Char.IsControl(e.KeyChar))
-            { //permitir teclas de control como retroceso
+                //permitir teclas de control como retroceso
                 e.Handled = false;
-            }
+            else if (contPuntos == 0 && e.KeyChar == '.')
+                //permitir un punto si no han ingresado uno anteriormente
+                e.Handled = false;
             else
-            {
                 //el resto de teclas pulsadas se desactivan
                 e.Handled = true;
-            }
         }
 
         private void frmEmpleado_FormClosing(object sender, FormClosingEventArgs e)
@@ -61,6 +66,11 @@ namespace lab_Empleados
         }
 
         private void frmEmpleado_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNumero_TextChanged(object sender, EventArgs e)
         {
 
         }
