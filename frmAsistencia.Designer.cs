@@ -34,13 +34,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmbNumero = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.cmbMes = new System.Windows.Forms.ComboBox();
+            this.nudHoras = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.dtgEmisiondeSalarios = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgEmisiondeSalarios)).BeginInit();
+            this.dtgListado = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.nudHoras)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgListado)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -88,6 +88,7 @@
             this.cmbNumero.Name = "cmbNumero";
             this.cmbNumero.Size = new System.Drawing.Size(121, 24);
             this.cmbNumero.TabIndex = 15;
+            this.cmbNumero.SelectedIndexChanged += new System.EventHandler(this.cmbNumero_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -98,12 +99,12 @@
             this.label3.TabIndex = 16;
             this.label3.Text = "Mes";
             // 
-            // comboBox1
+            // cmbMes
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cmbMes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbMes.FormattingEnabled = true;
+            this.cmbMes.Items.AddRange(new object[] {
             "Enero",
             "Febrero",
             "Marzo",
@@ -116,28 +117,28 @@
             "Octubre",
             "Noviembre",
             "Diciembre"});
-            this.comboBox1.Location = new System.Drawing.Point(60, 98);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(192, 24);
-            this.comboBox1.TabIndex = 17;
+            this.cmbMes.Location = new System.Drawing.Point(60, 98);
+            this.cmbMes.Name = "cmbMes";
+            this.cmbMes.Size = new System.Drawing.Size(192, 24);
+            this.cmbMes.TabIndex = 17;
             // 
-            // numericUpDown1
+            // nudHoras
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(394, 99);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.nudHoras.Location = new System.Drawing.Point(394, 99);
+            this.nudHoras.Maximum = new decimal(new int[] {
             420,
             0,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.nudHoras.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(73, 22);
-            this.numericUpDown1.TabIndex = 18;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.nudHoras.Name = "nudHoras";
+            this.nudHoras.Size = new System.Drawing.Size(73, 22);
+            this.nudHoras.TabIndex = 18;
+            this.nudHoras.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -160,27 +161,28 @@
             this.btnAgregar.TabIndex = 20;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // dtgEmisiondeSalarios
+            // dtgListado
             // 
-            this.dtgEmisiondeSalarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgEmisiondeSalarios.Location = new System.Drawing.Point(23, 194);
-            this.dtgEmisiondeSalarios.Name = "dtgEmisiondeSalarios";
-            this.dtgEmisiondeSalarios.RowHeadersWidth = 51;
-            this.dtgEmisiondeSalarios.RowTemplate.Height = 24;
-            this.dtgEmisiondeSalarios.Size = new System.Drawing.Size(491, 229);
-            this.dtgEmisiondeSalarios.TabIndex = 21;
+            this.dtgListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgListado.Location = new System.Drawing.Point(23, 194);
+            this.dtgListado.Name = "dtgListado";
+            this.dtgListado.RowHeadersWidth = 51;
+            this.dtgListado.RowTemplate.Height = 24;
+            this.dtgListado.Size = new System.Drawing.Size(491, 229);
+            this.dtgListado.TabIndex = 21;
             // 
             // frmAsistencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(553, 450);
-            this.Controls.Add(this.dtgEmisiondeSalarios);
+            this.Controls.Add(this.dtgListado);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.nudHoras);
+            this.Controls.Add(this.cmbMes);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbNumero);
             this.Controls.Add(this.txtNombre);
@@ -192,8 +194,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Asistencia";
             this.Load += new System.EventHandler(this.frmAsistencia_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgEmisiondeSalarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudHoras)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgListado)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,10 +209,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbNumero;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.ComboBox cmbMes;
+        private System.Windows.Forms.NumericUpDown nudHoras;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.DataGridView dtgEmisiondeSalarios;
+        private System.Windows.Forms.DataGridView dtgListado;
     }
 }

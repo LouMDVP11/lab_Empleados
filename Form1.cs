@@ -15,7 +15,6 @@ namespace lab_Empleados
     {
         public List<clsEmpleado> lstEmpleados = new List<clsEmpleado>();
         public List<clsAsistencia> lstAsistencias = new List<clsAsistencia>();
-        Boolean isInfocus = true;
         public Form1()
         {
             InitializeComponent();
@@ -26,7 +25,6 @@ namespace lab_Empleados
         {
             frmEmpleado empleado = new frmEmpleado();
             empleado.lstEmpleados = this.lstEmpleados;
-            isInfocus = false;
             empleado.Actualizar();
             empleado.ShowDialog();
         }
@@ -36,6 +34,7 @@ namespace lab_Empleados
             frmAsistencia asistencia = new frmAsistencia();
             asistencia.lstEmpleados = this.lstEmpleados;
             asistencia.lstAsistencias = this.lstAsistencias;
+            asistencia.Actualizar();
             asistencia.ShowDialog();
         }
         public void actualizar()
@@ -88,7 +87,7 @@ namespace lab_Empleados
         private void actualizarDatosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             loadData();
-            actualizar();
+            this.actualizar();
         }
 
         private void cmbNumero_SelectedIndexChanged(object sender, EventArgs e)
