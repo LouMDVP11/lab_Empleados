@@ -84,6 +84,7 @@
             this.btnAgregar.TabIndex = 5;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // txtNumero
             // 
@@ -168,7 +169,7 @@
         private System.Windows.Forms.TextBox txtNumero;
         private System.Windows.Forms.TextBox txtSalario;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dtgListado;
         private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.DataGridView dtgListado;
     }
 }

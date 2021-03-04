@@ -15,5 +15,6 @@ namespace lab_Empleados
         public int Codigo { get => codigo; set => codigo = value; }
         public int HorasMes { get => horasMes; set => horasMes = value; }
         public string Mes { get => mes; set => mes = value; }
+        public double TotalPagado { get => totalPagado; set => totalPagado = value; }
     }
 }
