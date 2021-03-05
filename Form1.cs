@@ -50,6 +50,8 @@ namespace lab_Empleados
             rbSalario.Checked = false;
             rbTotalPagado.Checked = false;
             rbNum2.Checked = false;
+            cmbNumero.Items.Clear();
+            cmbNombre.Items.Clear();
             if (lstEmpleados.Count>0)
             foreach (var em in lstEmpleados) {
                 cmbNumero.Items.Add(em.Codigo);
@@ -196,13 +198,16 @@ namespace lab_Empleados
 
         private void btnReestablecer_Click(object sender, EventArgs e)
         {
-            lstAsistenciaFiltrada = false;
-            btnBuscar.Enabled = false;
-            btnReestablecer.Enabled = false;
             cmbNumero.SelectedIndex = -1;
             cmbNombre.SelectedIndex = -1;
             rbTotalPagado.Checked = false;
             rbNum2.Enabled = true;
+            this.dtgAsistencia.DataSource = null;
+            this.dtgAsistencia.DataSource = lstAsistencias;
+            this.dtgAsistencia.Refresh();
+            lstAsistenciaFiltrada = false;
+            btnBuscar.Enabled = false;
+            btnReestablecer.Enabled = false;
         }
     }
 }
