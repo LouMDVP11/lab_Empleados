@@ -48,6 +48,8 @@
             this.cmbNombre = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnReestablecer = new System.Windows.Forms.Button();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgEmpleados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgAsistencia)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -123,7 +125,7 @@
             this.actualizarDatosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(749, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(749, 28);
             this.menuStrip1.TabIndex = 15;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -264,11 +266,30 @@
             this.btnReestablecer.UseVisualStyleBackColor = true;
             this.btnReestablecer.Click += new System.EventHandler(this.btnReestablecer_Click);
             // 
+            // txtTotal
+            // 
+            this.txtTotal.Enabled = false;
+            this.txtTotal.Location = new System.Drawing.Point(438, 489);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(120, 22);
+            this.txtTotal.TabIndex = 29;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(373, 492);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 17);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "Total: Q";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(749, 511);
+            this.ClientSize = new System.Drawing.Size(749, 551);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.btnReestablecer);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.cmbNombre);
@@ -321,6 +342,8 @@
         private System.Windows.Forms.ToolStripMenuItem actualizarDatosToolStripMenuItem;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnReestablecer;
+        private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.Label label1;
     }
 }
 

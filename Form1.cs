@@ -187,12 +187,16 @@ namespace lab_Empleados
             AsistenciaFiltrada(lstAsistenciasTemp);
         }
         private void AsistenciaFiltrada(List<clsAsistencia> lstAsistenciasTemp) {
+            Double total = 0;
             foreach (var a in lstAsistencias)
-                if (a.Codigo.Equals(Convert.ToInt32(cmbNumero.SelectedItem)))
+                if (a.Codigo.Equals(Convert.ToInt32(cmbNumero.SelectedItem))) { 
                     lstAsistenciasTemp.Add(a);
+                    total += a.TotalPagado;
+                }
             dtgAsistencia.DataSource = null;
             dtgAsistencia.DataSource = lstAsistenciasTemp;
             dtgAsistencia.Refresh();
+            txtTotal.Text = total + "";
             lstAsistenciaFiltrada = true;
         }
 
@@ -208,6 +212,7 @@ namespace lab_Empleados
             lstAsistenciaFiltrada = false;
             btnBuscar.Enabled = false;
             btnReestablecer.Enabled = false;
+            txtTotal.Clear();
         }
     }
 }
