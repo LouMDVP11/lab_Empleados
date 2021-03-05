@@ -1,0 +1,15 @@
+1
+Luis Alberto García
+100
+2
+Josué Rivas
+150
+3
+Keyla Mendez
+155.5
+4
+Karla Pereira
+450
+5
+Carlos Pereira
+200
